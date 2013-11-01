@@ -73,11 +73,12 @@ public class Main {
 	public void fight() {
 		int tier = monsterCount / monstersPerTier + 1;
 		
-		Monster monster = Monster.newInstance(Monster.getRandomByTier(tier));
+		Monster monster = new Monster(Monster.getRandomByTier(tier));
 		
 		System.out.println("\nNow fighting: " + monster.name);
 		
 		while (monster.health > 0 && health > 0 && !quit) {
+			// Having a higher speed than the opponent provides a higher chance of going first, though isn't guaranteed.
 			int attackFirstChance = (int)(50f * (float)equippedWeapon.speed / (float)monster.speed);
 			boolean yourTurn = random.nextInt(100) < attackFirstChance;
 			

@@ -22,9 +22,8 @@ public class Monster {
 		this.speed = speed;
 	}
 	
-	public static Monster newInstance(Monster monster) {
-		Monster m = new Monster(monster.name, monster.health, monster.tier, monster.damage, monster.speed);
-		return m;
+	public Monster(Monster monster) {
+		this(monster.name, monster.health, monster.tier, monster.damage, monster.speed);
 	}
 	
 	public static void init() {
